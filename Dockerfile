@@ -1,7 +1,5 @@
 FROM sillelien/base-alpine:0.10
 
-MAINTAINER Michael Dimmock <https://github.com/michaeldim>
-
 # Install packages
 RUN apk-install nginx \
     bash \
@@ -15,11 +13,10 @@ RUN apk-install nginx \
     php-json \
     php-mcrypt \
     php-mysql \
+    php-mysqli \
     php-pdo_mysql \
     php-phar \
     php-openssl && \
-    curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer && \
     rm -Rf /var/www/*
 
 # Copy configuration files to root
